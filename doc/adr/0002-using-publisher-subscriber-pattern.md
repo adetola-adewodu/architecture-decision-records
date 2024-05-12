@@ -55,6 +55,21 @@ Supporting diagrams:
     @startuml img/PublisherSubscriberDiagram
 
     autonumber
+    MessageProducer -> Queue : send(message)
+    Queue -> MessageConsumer : receive(message)
+    MessageConsumer -> "Other Rest API": /POST object
+    "Other Rest API" -> DB: create_update(object)
+
+    @enduml
+
+</div>
+
+![](img/RestAPIPublisherSubscriberDiagram.svg)
+<div>
+
+    @startuml img/RestAPIPublisherSubscriberDiagram
+
+    autonumber
     
     Client -> "Rest API": /POST object
     "Rest API" -> MessageProducer: create_update(object)
