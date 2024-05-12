@@ -50,7 +50,7 @@ Supporting diagrams:
 </div>
 
 ![](img/PublisherSubscriberDiagram.svg)
-<div hidden>
+<div>
 
     @startuml img/PublisherSubscriberDiagram
 
