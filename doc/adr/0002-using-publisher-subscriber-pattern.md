@@ -20,34 +20,17 @@ What becomes easier or more difficult to do and any risks introduced by the chan
 
 Supporting diagrams:
 
-![](img/PublisherSubscriberDiagram.svg)
-<div hidden>
-
-@startuml img/PublisherSubscriberDiagram
-
-  autonumber
-  
-  Client -> "Rest API": /POST object
-  "Rest API" -> MessageProducer: create_update(object)
-  MessageProducer -> Queue : send(message)
-  Queue -> MessageConsumer : receive(message)
-  MessageConsumer -> DB: create_update(object)
-
-@enduml
-
-</div>
-
 ![](img/PublisherDiagram.svg)
 <div hidden>
 
-@startuml img/PublisherDiagram
+    @startuml img/PublisherDiagram
 
-  autonumber
-  Queue -> Service : receive(message)
-  Service -> "Rest API": /POST object
-  "Rest API" -> DB: create_update(object)
+    autonumber
+    Queue -> Service : receive(message)
+    Service -> "Rest API": /POST object
+    "Rest API" -> DB: create_update(object)
 
-@enduml
+    @enduml
 
 </div>
 
@@ -55,13 +38,30 @@ Supporting diagrams:
 ![](img/SubscriberDiagram.svg)
 <div hidden>
 
-@startuml img/SubscriberDiagram
+    @startuml img/SubscriberDiagram
 
-  autonumber
-  Queue -> Service : receive(message)
-  Service -> "Rest API": /POST object
-  "Rest API" -> DB: create_update(object)
+    autonumber
+    Queue -> Service : receive(message)
+    Service -> "Rest API": /POST object
+    "Rest API" -> DB: create_update(object)
 
-@enduml
+    @enduml
+
+</div>
+
+![](img/PublisherSubscriberDiagram.svg)
+<div hidden>
+
+    @startuml img/PublisherSubscriberDiagram
+
+    autonumber
+    
+    Client -> "Rest API": /POST object
+    "Rest API" -> MessageProducer: create_update(object)
+    MessageProducer -> Queue : send(message)
+    Queue -> MessageConsumer : receive(message)
+    MessageConsumer -> DB: create_update(object)
+
+    @enduml
 
 </div>
