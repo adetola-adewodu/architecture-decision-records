@@ -60,7 +60,8 @@ Supporting diagrams:
     "Rest API" -> MessageProducer: create_update(object)
     MessageProducer -> Queue : send(message)
     Queue -> MessageConsumer : receive(message)
-    MessageConsumer -> DB: create_update(object)
+    MessageConsumer -> "Other Rest API": /POST object
+    "Other Rest API" -> DB: create_update(object)
 
     @enduml
 
